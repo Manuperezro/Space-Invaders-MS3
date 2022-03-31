@@ -4,19 +4,19 @@ import sys
 # pygame module used to add functionality to the game
 import pygame
 
+from configurations import Configurations
 
 def run_game():
     """
-    Initialize the game and create and screen object
+    Initialize the game, the configurations and create and screen object
     """
     pygame.init()
+    ai_configurations = Configurations()
 
     # Create a screen to visualize the game 800pxiles width 600px height
-    screen = pygame.display.set_mode((800,600))
+    screen = pygame.display.set_mode((ai_configurations.screen_width, 
+    ai_configurations.screen_height))
     pygame.display.set_caption("Alien Invasion")
-
-    # Set up back gtoung color
-    bg_color = (230, 230, 230)
 
     # Loop to repeat the game
     while True:
@@ -24,9 +24,9 @@ def run_game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-                
+
         # Draw the screen everytime the loop is activated
-        screen.fill(bg_color)
+        screen.fill(ai_configurations.bg_color)
 
         # Update continiusly the elements on the screem, to show new positions 
         # of the elements in the most recent screen
